@@ -65,9 +65,14 @@ export default function TechStack() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-24 gap-y-10 opacity-70">
           {items.map(({ name, Icon }, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-3 text-white/60 hover:text-white/90 transition"
+  <div
+    key={i}
+    className="flex items-center gap-3 text-white/60 hover:text-white/90 transition-all duration-300 hover:scale-105"
+    style={{ 
+      animation: 'fadeInUp 0.6s ease-out',
+      animationDelay: `${i * 0.1}s`,
+      animationFillMode: 'both'
+    }}
               title={name}
             >
               {/* SVG render başarısız olursa metin fallback */}

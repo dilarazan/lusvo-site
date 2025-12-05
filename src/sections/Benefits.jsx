@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import Section from "../components/Section";
-
+import ParallaxSection from "../components/ParallaxSection";
 /* ====== İkonlar (aynı) ====== */
 const IShield = (p) => (
   <svg viewBox="0 0 24 24" fill="none" {...p}>
@@ -45,12 +45,12 @@ function Card({ icon: IconComp, title, text, delayVar }) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_0%_0%,rgba(95,180,255,0.07),transparent_55%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5FB4FF40] to-transparent" />
 
-      <div className="relative z-10 p-6 md:p-7 xl:p-8 flex flex-col gap-3 min-h-[210px] md:min-h-[230px]">
+      <div className="relative z-10 p-5 md:p-7 xl:p-8 flex flex-col gap-3 min-h-[200px] md:min-h-[230px]">
         <div className="h-10 w-10 grid place-items-center rounded-xl border border-[#5FB4FF33] bg-[#5FB4FF14] shadow-[0_0_18px_rgba(95,180,255,0.16)]">
           {IconComp ? <IconComp className="h-[18px] w-[18px] text-[#8fd1ff]" /> : null}
         </div>
 
-        <h3 className="text-white text-[17px] md:text-[18px] font-semibold tracking-[0.005em]">
+        <h3 className="text-white text-[16px] md:text-[18px] font-semibold tracking-[0.005em] leading-snug">
           {title}
         </h3>
         <p className="text-white/70 text-[14px] md:text-[14.5px] leading-[1.6]">
@@ -90,6 +90,7 @@ export default function Benefits() {
   }, []);
 
   return (
+  <ParallaxSection speed={-0.15}>
     <Section
       id="benefits"
       className="relative isolate py-16 md:py-20"
@@ -99,7 +100,7 @@ export default function Benefits() {
       }}
     >
       <div ref={wrapRef} className="relative z-10 mx-auto w-full max-w-[1320px]">
-        <div className="grid gap-5 md:gap-6 lg:gap-7 grid-cols-1 md:grid-cols-2">
+        <div className="grid gap-4 md:gap-6 lg:gap-7 grid-cols-1 md:grid-cols-2">
           <Card
             icon={IShield}
             title="Kurumsal güvenlik altyapısı"
@@ -110,19 +111,19 @@ export default function Benefits() {
             icon={IHandshake}
             title="Uzman AI ekip desteği"
             text="Deneyimli ekibimizle projelerinizin her adımında yanınızdayız. Planlama, uygulama ve analiz süreçleri sorunsuz ilerler."
-            delayVar="90ms"
+            delayVar="120ms"
           />
           <Card
             icon={IReport}
             title="Şeffaf analiz & ilerleme"
             text="Tüm süreçler ölçülebilir; sonuçlar anlık raporlarla paylaşılır. Her adım net ve izlenebilirdir."
-            delayVar="180ms"
+            delayVar="240ms"
           />
           <Card
             icon={IClock}
             title="Akıcı, kesintisiz sistemler"
             text="Her süreç optimize edilmiştir; yoğunlukta bile otomasyonlar kesintisiz işler. Hız, performans ve denge bir aradadır."
-            delayVar="270ms"
+            delayVar="360ms"
           />
         </div>
       </div>
@@ -144,5 +145,6 @@ export default function Benefits() {
         }
       `}</style>
     </Section>
+  </ParallaxSection>
   );
 }

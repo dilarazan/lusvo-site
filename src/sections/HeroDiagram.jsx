@@ -37,11 +37,12 @@ export default function HeroDiagram() {
     };
 
     const draw = (W, H) => {
-      ctx.clearRect(0, 0, W, H);
+  ctx.clearRect(0, 0, W, H);
 
-      // hizalama (AI kısmı)
-      const cx = W * 0.58;
-      const cy = H * 0.48;
+  // Mobilde daha merkezi hizalama
+  const isMobile = W < 768;
+  const cx = isMobile ? W * 0.5 : W * 0.58;
+  const cy = H * 0.48;
 
       // 🔹 arka yumuşak ışık (AI arkasında)
       const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 420);

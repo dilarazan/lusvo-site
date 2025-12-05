@@ -18,7 +18,7 @@ export default function Navbar() {
       ref={navRef}
       aria-label="Site navigation"
       className={[
-        "fixed inset-x-0 top-0 z-40 transition-all duration-700 ease-out",
+  "fixed inset-x-0 top-0 z-40 transition-all duration-700 ease-out safe-area-top",
         visible
           ? "translate-y-0 opacity-100"
           : "-translate-y-full opacity-0",

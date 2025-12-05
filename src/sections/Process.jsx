@@ -1,7 +1,7 @@
 // src/sections/Process.jsx
 import { useState, useEffect, useRef } from "react";
 import Section from "../components/Section";
-
+import ParallaxSection from "../components/ParallaxSection";
 const steps = [
   {
     title: "Kısa keşif",
@@ -62,9 +62,10 @@ export default function Process() {
   };
 
   return (
+  <ParallaxSection speed={-0.2}>
     <Section id="process" className="relative isolate pt-20 pb-16 bg-transparent">
       {/* Başlık */}
-      <div className="mb-16 ml-[48%]">
+      <div className="mb-10 md:mb-16 ml-0 md:ml-[48%]">
         <h2 className="text-3xl md:text-4xl font-bold text-white">
           Demo’dan sonra süreç nasıl ilerliyor?
         </h2>
@@ -75,11 +76,11 @@ export default function Process() {
 
       {/* Kart (spiralin sağına hizalı) */}
       <div
-        ref={cardRef}
-        onClick={handleNext}
-        onMouseEnter={stopAuto}
-        onMouseLeave={startAuto}
-        className="relative ml-[48%] w-full max-w-[700px] p-10 rounded-3xl border border-[#5FB4FF44]
+  ref={cardRef}
+  onClick={handleNext}
+  onMouseEnter={stopAuto}
+  onMouseLeave={startAuto}
+  className="relative ml-0 md:ml-[48%] w-full max-w-[700px] p-6 md:p-10 rounded-3xl border border-[#5FB4FF44]
                    bg-gradient-to-br from-[#0a0f16]/85 to-[#05080c]/80 backdrop-blur-xl
                    shadow-[0_0_40px_rgba(95,180,255,0.25)]
                    transition-all duration-700 text-left cursor-pointer select-none
@@ -129,5 +130,6 @@ export default function Process() {
         }
       `}</style>
     </Section>
+  </ParallaxSection>
   );
 }

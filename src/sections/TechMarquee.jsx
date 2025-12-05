@@ -1,5 +1,5 @@
 // src/sections/TechMarquee.jsx
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function TechMarquee() {
   const BASE = import.meta.env.BASE_URL || "/";
@@ -16,6 +16,8 @@ export default function TechMarquee() {
   const wRef     = useRef(0);
   const xRef     = useRef(0);
 
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const SPEED = 42; // px/s
 
   useEffect(() => {
@@ -28,6 +30,7 @@ export default function TechMarquee() {
     const done = () => {
       loaded++;
       if (loaded === imgs.length) {
+        setIsLoaded(true);
         wRef.current = strip.offsetWidth;
         let last = performance.now();
         const tick = (now) => {
@@ -86,7 +89,11 @@ export default function TechMarquee() {
       <div className="tmc-container" data-reveal="up">
         <h3 className="tmc-title">Kullandığımız Teknolojiler</h3>
 
-        <div className="tmc-viewport" onMouseEnter={pause} onMouseLeave={resume}>
+        <div 
+          className={`tmc-viewport transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onMouseEnter={pause} 
+          onMouseLeave={resume}
+        >
           <div className="tmc-edge tmc-edge--left"  aria-hidden />
           <div className="tmc-edge tmc-edge--right" aria-hidden />
 

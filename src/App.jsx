@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 
 // 🔹 Bileşenler
+import CursorGlow from "./components/CursorGlow";
 import Navbar from "./components/Navbar";
 import GlobalSpace from "./components/GlobalSpace";
 import LoaderOverlay from "./components/LoaderOverlay";
 import RevealOnScroll from "./components/RevealOnScroll";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 // 🔹 Bölümler
 import HeroShowcase from "./sections/HeroShowcase";
-import HeroDiagram from "./sections/HeroDiagram"; // LUSAI'den çıkan AI diyagramı
+import HeroDiagram from "./sections/HeroDiagram";
 import Benefits from "./sections/Benefits";
 import Process from "./sections/Process";
 import TechMarquee from "./sections/TechMarquee";
@@ -26,8 +28,9 @@ export default function App() {
   return (
     <>
       {/* =======================================================
-          ARKA PLAN ve ÜST KOMPONENTLER
+          LOADER & ARKA PLAN
       ======================================================= */}
+      <CursorGlow />
       <GlobalSpace />
       <Navbar />
       <PageLoaderDone />
@@ -41,7 +44,7 @@ export default function App() {
         {/* HERO (Logo + Neural bağlantı + AI Diyagram) */}
         <section className="relative">
           <HeroShowcase />
-          <HeroDiagram /> {/* LUSAI logosundan çıkan bağlantısız AI diyagramı */}
+          <HeroDiagram />
         </section>
 
         {/* ÖZELLİKLER */}
@@ -58,6 +61,7 @@ export default function App() {
           ALT BİLGİ
       ======================================================= */}
       <Footer />
+      <BackToTop />
     </>
   );
 }

@@ -1,12 +1,13 @@
 // src/components/Footer.jsx
 export default function Footer() {
   return (
-    <footer className="bg-transparent">
+    <footer className="bg-transparent border-t border-white/5 relative">
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="py-3 md:py-4">
         <div className="mx-auto max-w-[1180px] px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
             {/* Marka — daha da sola çekildi, spiralden uzak */}
-            <div className="ml-[clamp(0px,1vw,24px)] -translate-x-[96px] md:-translate-x-[120px] lg:-translate-x-[160px]">
+            <div className="ml-0 md:ml-[clamp(0px,1vw,24px)] -translate-x-0 md:-translate-x-[120px] lg:-translate-x-[160px]">
               <a
                 href="/"
                 aria-label="LUSAI"
@@ -60,15 +61,19 @@ export default function Footer() {
                 </a>
 
                 <a
-                  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 bg-white/5 hover:bg-white/10 text-white/85 transition"
-                  href="mailto:contact@lusai.io"
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                  <span>E-posta</span>
-                </a>
+  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 bg-white/5 hover:bg-white/10 text-white/85 transition"
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=contact@lusai.io"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="E-posta gönder"
+>
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.5" />
+  </svg>
+  <span>E-posta</span>
+</a>
+
               </div>
 
               <div className="flex flex-wrap gap-3 text-[12px] text-white/60">

@@ -1,6 +1,6 @@
 // src/sections/HeroShowcase.jsx
 import React, { useEffect, useRef } from "react";
-
+import ParallaxSection from "../components/ParallaxSection";
 /* =======================================================
    SOL SPIRAL — Fade-out ile zarif şekilde sonlanır
 ======================================================= */
@@ -158,10 +158,11 @@ function NeuralLinks() {
           }
         }
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 1.3, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(95,180,255,0.7)";
-        ctx.fill();
+        const pulse = Math.sin(Date.now() * 0.001 + i) * 0.3 + 0.7;
+ctx.beginPath();
+ctx.arc(p.x, p.y, 1.3 * pulse, 0, Math.PI * 2);
+ctx.fillStyle = `rgba(95,180,255,${0.7 * pulse})`;
+ctx.fill();
       }
 
       raf = requestAnimationFrame(draw);
@@ -210,13 +211,13 @@ function CenterLogo() {
 
         {/* LUSAI — etikete “yapışık” */}
         <a href="/" className="group pointer-events-auto">
-          <div
-            className="
-              lusai-pro text-white leading-none
-              text-[64px] sm:text-[78px] md:text-[92px]
-              -ml-1 sm:-ml-2 md:-ml-3   /* etikete doğru yaklaştırma */
-            "
-          >
+         <div
+  className="
+    lusai-pro text-white leading-none
+    text-[56px] sm:text-[72px] md:text-[92px]
+    -ml-0 sm:-ml-2 md:-ml-3
+  "
+>
             <span className="lus-lus">
               <span className="ch k-L">L</span>
               <span className="ch k-U">U</span>
@@ -239,16 +240,20 @@ function CenterLogo() {
 export default function HeroShowcase() {
   return (
     <section
-      id="hero"
-      className="relative min-h-[100svh] bg-transparent overflow-hidden"
-    >
+  id="hero"
+  className="relative min-h-[100svh] md:min-h-[100vh] bg-transparent overflow-hidden"
+  style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
+>
       {/* Sol spiral (solda, arkada) */}
 
       {/* Logo (önde) */}
-      <CenterLogo />
+     {/* Logo (önde) */}
+<CenterLogo />
 
-      {/* Neural bağlantı (sağ üstte, çapraz) */}
-      <NeuralLinks />
+{/* Neural bağlantı (sağ üstte, çapraz) */}
+<ParallaxSection speed={0.3}>
+  <NeuralLinks />
+</ParallaxSection>
     </section>
   );
 }
