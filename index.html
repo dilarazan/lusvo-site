@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LUSAI</title>
+
+    <!-- Tema rengi (isteğe bağlı) -->
+    <meta name="theme-color" content="#0a0c10" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Favicon (public/favicon.ico koyduysan çalışır) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Fontlar (başlık: Plus Jakarta Sans, metin: Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="bg-[#0B0D12] text-white">
+    <!-- Loader KAPALI: karanlık gölge olmasın diye kaldırdım.
+         Tekrar kullanmak istersen aşağıdaki satırı aç
+         ve App’te PageLoaderDone ekleyebilirsin. -->
+    <!-- <div id="page-loader" class="page-loader"></div> -->
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- (Opsiyonel) Loader kullandığın gün, ilk boyama sonrası kapat:
+    <script>
+      requestAnimationFrame(() => {
+        const el = document.getElementById('page-loader');
+        if (el) { el.classList.add('is-done'); setTimeout(()=>el.remove(), 700); }
+      });
+    </script>
+    -->
+  </body>
+</html>

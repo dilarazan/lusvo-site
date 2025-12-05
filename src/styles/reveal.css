@@ -1,0 +1,13 @@
+.reveal-item{
+  opacity:0;
+  transform:translateY(14px) scale(.985);
+  transition:
+    opacity 520ms cubic-bezier(.22,.61,.36,1) var(--d,0ms),
+    transform 520ms cubic-bezier(.22,.61,.36,1) var(--d,0ms),
+    box-shadow 300ms ease, border-color 300ms ease;
+  will-change:opacity,transform;
+}
+.reveal-item.reveal-in{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
